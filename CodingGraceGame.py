@@ -282,7 +282,8 @@ def guard():
 # visible, which is helpful when reading the code.
 
 def Purple_Room(player_info_arg):
-    """The Purple Room: a fun placeholder room that does nothing."""
+    
+    """The Purple Room: a matrix room that has two choices."""
 
     print("\nYou have entered the Purple Room. A glowing rest site appears.")
 
