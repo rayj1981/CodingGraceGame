@@ -290,9 +290,12 @@ def Purple_Room(player_info_arg):
     player_info_arg["location"] = "Purple Room"
 
 
-    #Rest site
-    print("You come across a rest stie with two different options you can either choose the red pill and heal a percentage of your hp" \
-    "or the blue pill to lose 5 hp and get a upgrade of a item in your inventory.")
+    # Rest site
+    print(
+        "You come across a rest site with two different options. You can either choose "
+        "the red pill and heal some of your HP, or the blue pill to lose 5 HP and "
+        "upgrade an item in your inventory."
+    )
 
     action = input("\nWhat do you do? > ")
 
