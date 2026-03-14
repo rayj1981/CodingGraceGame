@@ -334,6 +334,13 @@ def Purple_Room(player_info_arg):
 
 
 
+def gold_room(player_info_arg):
+    print("You enter a room filled with gold coins.")
+    player_info_arg["location"] = "Gold Room"
+    player_info_arg["health"] += 10
+    if "gold coin" not in player_info_arg["inventory"]:
+        player_info_arg["inventory"].append("gold coin")
+    player_info_arg["choices"].append("Gold Room")
 
 
 
@@ -777,3 +784,7 @@ def print_new_dungeon():
 
 if __name__ == '__main__':
     player_info = main(player_info)
+
+    show_player_info(player_info_arg)
+    return player_info_arg
+
