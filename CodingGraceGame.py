@@ -281,6 +281,62 @@ def guard():
 # caller already has a reference to the same object) makes the data flow
 # visible, which is helpful when reading the code.
 
+def Purple_Room(player_info_arg):
+    
+    """The Purple Room: a matrix room that has two choices."""
+
+    print("\nYou have entered the Purple Room. A glowing rest site appears.")
+
+    player_info_arg["location"] = "Purple Room"
+
+
+    # Rest site
+    print(
+        "You come across a rest site with two different options. You can either choose "
+        "the red pill and heal some of your HP, or the blue pill to lose 5 HP and "
+        "upgrade an item in your inventory."
+    )
+
+    action = input("\nWhat do you do? > ")
+
+
+    healing = 30
+    
+    if action.lower() in ["red pill", "red"]:
+        #Super Heal
+        player_info_arg["health"] += healing
+        if player_info_arg["health"] > 200:
+            player_info_arg["health"] = 200
+
+        print(f"You took the red pill and healed {healing} health points.")
+
+    elif action.lower() in ["blue pill", "blue"]:
+
+        # small cost for magical upgrade
+        player_info_arg["health"] -= 5
+
+
+        #New Purple Charm item or upgrade
+        if "Purple Charm" not in player_info_arg["inventory"]:
+            print("You gained a Purple Charm!")
+            player_info_arg["inventory"].append("Purple Charm")
+        else:
+            print("You already have the Purple Charm, so you receive a upgraded Purple Charm instead.")
+            player_info_arg["inventory"].append("Purple Charm 2.0")
+    
+
+
+
+    player_info_arg["choices"].append("Purple Room")
+    show_player_info(player_info_arg)
+
+
+    return player_info_arg
+
+
+
+
+
 def gold_room(player_info_arg):
     print("You enter a room filled with gold coins.")
     player_info_arg["location"] = "Gold Room"
