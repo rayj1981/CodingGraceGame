@@ -344,7 +344,8 @@ def gold_room(player_info_arg):
     if "gold coin" not in player_info_arg["inventory"]:
         player_info_arg["inventory"].append("gold coin")
     player_info_arg["choices"].append("Gold Room")
-
+    show_player_info(player_info_arg)
+    return player_info_arg
 
 
 def blissful_ignorance_of_illusion_room(player_info_arg):
