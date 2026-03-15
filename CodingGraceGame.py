@@ -281,7 +281,7 @@ def guard():
 # caller already has a reference to the same object) makes the data flow
 # visible, which is helpful when reading the code.
 
-def Purple_Room(player_info_arg):
+def purple_room_of_choice(player_info_arg):
     
     """The Purple Room: a matrix room that has two choices."""
 
@@ -334,7 +334,8 @@ def Purple_Room(player_info_arg):
     return player_info_arg
 
 
-def gold_room(player_info_arg):
+def gold_room_of_love(player_info_arg):
+    
     print("You enter a room filled with gold coins.")
     player_info_arg["location"] = "Gold Room"
     player_info_arg["health"] += 10
@@ -615,9 +616,9 @@ def start_new_adventure(player_info_arg):
         elif door.startswith("green"):
             room_result = green_magic_room(player_info_arg)
         elif door.startswith("gold"):
-            room_result = gold_room(player_info_arg)
+            room_result = gold_room_of_love(player_info_arg)
         elif door.startswith("purple"):
-            room_result = Purple_Room(player_info_arg)
+            room_result = purple_room_of_choice(player_info_arg)
         elif door.startswith("pink"):
             room_result = pink_trophy_of_realism_room(player_info_arg)
         else:
