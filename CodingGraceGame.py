@@ -790,5 +790,39 @@ def print_new_dungeon():
 if __name__ == '__main__':
     player_info = main(player_info)
 
+def pink_trophy_of_realism_room(player_info_arg):
+    print_monster()
+    print("\nYou have entered the Pink Room.")
+
+    # --- Update player state ---
+    player_info_arg["location"] = "Pink Room"
+
+    damage = 20
+    knowledge = "Pink Trophy"
+    player_info_arg["health"] -= damage
+    if knowledge not in player_info_arg["inventory"]:
+        player_info_arg["inventory"].append(knowledge)
+        print(f"The trophy costs you {damage} health "
+              f"but grants you the {knowledge}.")
+
+    player_info_arg["choices"].append("Pink Room")
+    show_player_info(player_info_arg)
+
+    print("You see the great evil Duck.")
+    print("The Evil Duck bites you and you despair.")
+    print("Do you flee for your life or eat your head?")
+
+    next_move = input("> ")
+
+    # Using in lets the player type "flee now" or "I flee" and still match.
+    if "flee" in next_move:
+        # Returning "flee" tells the loop in start_new_adventure() to
+        # present the door choice again.  This avoids using recursion,
+        # which would add a new stack frame every time the player flees
+        # and could eventually cause a RecursionError.
+        return "flee"
+    else:
+        you_died("You died. Well, that was unfortunate") 
+        
 
 
